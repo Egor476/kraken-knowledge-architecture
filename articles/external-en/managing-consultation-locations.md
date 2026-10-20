@@ -80,7 +80,8 @@ To view your consultation locations:
 
 From this section, you can manage the consultation locations associated with your professional profile.
 
-> [!NOTE] Can I manage addresses from the mobile app?
+> [!NOTE]
+> Can I manage addresses from the mobile app?
 > Adding, editing, deleting, and reordering consultation locations are available through the Doctoralia website, not the mobile app. Use a web browser to make these changes.
 
 ## Adding a consultation location
@@ -101,7 +102,8 @@ To add a physical consultation location:
 
 Additional address details can help patients find the correct entrance or office.
 
-> [!NOTE] How many physical consultation locations can I add?
+> [!NOTE]
+> How many physical consultation locations can I add?
 > The number of physical consultation locations available to your account depends on your subscription plan. If you cannot add another location, see the troubleshooting section below.
 
 ### Adding an online consultation location
@@ -146,7 +148,8 @@ You can change the order of your consultation locations from the **Addresses** s
 
 The consultation location in the first position is considered your primary address.
 
-> [!NOTE] Why hasn't the order changed on my public profile?
+> [!NOTE]
+> Why hasn't the order changed on my public profile?
 > Changes to your public profile may take some time to appear. In addition, the patient-facing profile may group or prioritize locations according to consultation type. If the new order is not visible immediately, wait a little and check your public profile in a private or incognito browser window.
 
 ## Deleting a consultation location
@@ -157,7 +160,8 @@ Before removing a consultation location, check whether one of the following rest
 
 An address cannot be deleted while either restriction applies.
 
-> [!NOTE] What if the location has a linked calendar?
+> [!NOTE]
+> What if the location has a linked calendar?
 > If a calendar is linked to the address, you need to delete the calendar first before you delete the address.
  
 ### Deleting a calendar
