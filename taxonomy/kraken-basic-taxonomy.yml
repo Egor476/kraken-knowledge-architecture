@@ -1,0 +1,119 @@
+taxonomy:
+  id: kraken_basic_taxonomy
+  language: en
+  title: Kraken Basic Taxonomy
+
+  subjects:
+  - key: features
+    title: Features
+    children:
+    - key: address_management
+      title: Address management
+      children:
+      - key: adding_address
+        title: Adding address
+      - key: viewing_addresses
+        title: Viewing addresses
+      - key: editing_address
+        title: Editing address
+      - key: deleting_address
+        title: Deleting address
+      - key: recovering_address
+        title: Recovering address
+      - key: reordering_addresses
+        title: Reordering addresses
+    - key: consultation_hours_management
+      title: Consultation hours management
+      children:
+      - key: adding_consultation_hours
+        title: Adding consultation hours
+      - key: editing_consultation_hours
+        title: Editing consultation hours
+    - key: calendar_management
+      title: Calendar management
+      children:
+      - key: adding_calendar
+        title: Adding calendar
+      - key: editing_calendar
+        title: Editing calendar
+      - key: deleting_calendar
+        title: Deleting calendar
+      - key: changing_calendar_color
+        title: Changing calendar color
+    - key: appointment_management
+      title: Appointment management
+      children:
+      - key: enabling_online_booking
+        title: Enabling online booking
+      - key: adding_appointment
+        title: Adding appointment
+      - key: cancelling_appointment
+        title: Cancelling appointment
+      - key: editing_appointment
+        title: Editing appointment
+      - key: deleting_appointment
+        title: Deleting appointment
+      - key: viewing_appointment_history
+        title: Viewing appointment history
+    - key: service_management
+      title: Service management
+      children:
+      - key: assigning_service_to_address
+        title: Assigning service to address
+      - key: removing_service_from_address
+        title: Removing service from address
+    - key: clinic_management
+      title: Clinic management
+      children:
+      - key: activating_clinic_profile
+        title: Activating clinic profile
+      - key: inviting_doctors
+        title: Inviting doctors
+      - key: managing_linked_doctors
+        title: Managing linked doctors
+      - key: managing_shared_calendars
+        title: Managing shared calendars
+
+  - key: roles
+    title: Roles
+    children:
+    - key: professional
+      title: Professional
+    - key: clinic_administrator
+      title: Clinic administrator
+    - key: receptionist
+      title: Receptionist
+    - key: support_specialist
+      title: Support specialist
+
+  - key: consultation_types
+    title: Consultation types
+    children:
+    - key: physical_consultation
+      title: Physical consultation
+    - key: online_consultation
+      title: Online consultation
+
+  - key: access_points
+    title: Access points
+    children:
+    - key: web_browser
+      title: Web browser
+    - key: mobile_app
+      title: Mobile app
+
+  - key: subscription_plans
+    title: Subscription plans
+    children:
+    - key: free
+      title: Free
+    - key: paid
+      title: Paid
+
+  - key: profile_types
+    title: Profile types
+    children:
+    - key: individual_professional_profile
+      title: Individual professional profile
+    - key: clinic_profile
+      title: Clinic profile

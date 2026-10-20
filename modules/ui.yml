@@ -1,0 +1,265 @@
+id: kraken_ui_module
+title: Kraken UI Module
+schema_version: '1.0'
+taxonomy_source: taxonomy/kraken-basic-taxonomy.yml
+source_inventory: inventory/kraken-product-facts.md
+evidence_status: Observed in supplied Doctor–Kraken video; not independently verified
+localization:
+  supported_locales: [en-gb, es-mx]
+  content_languages: [en, es]
+  strategy: localized_labels_per_ui_element
+  ui_label_note: Translated UI labels are illustrative, not verified against localized product UI.
+ui_elements:
+- id: ui.settings
+  title: Settings
+  element_type: navigation_item
+  taxonomy:
+  - address_management
+  - calendar_management
+  - web_browser
+  source_facts:
+  - UI-01
+  - UI-11
+  - UI-18
+  content:
+    en:
+      label: Settings
+      system_note: The video suggests a gear icon or account-name menu as possible access points; placement
+        is not confirmed.
+    es:
+      label: Configuración
+      system_note: El video sugiere un icono de engranaje o el menú de la cuenta; la ubicación no está confirmada.
+  label_or_placement_unverified: true
+- id: ui.addresses
+  title: Addresses
+  element_type: navigation_section
+  taxonomy:
+  - address_management
+  - web_browser
+  source_facts:
+  - UI-02
+  content:
+    en:
+      label: Addresses
+    es:
+      label: Direcciones
+- id: ui.add_physical_consultation
+  title: Add physical consultation
+  element_type: button
+  taxonomy:
+  - adding_address
+  - physical_consultation
+  - web_browser
+  source_facts:
+  - UI-03
+  content:
+    en:
+      label: Add physical consultation
+    es:
+      label: Añadir consulta presencial
+- id: ui.address_limit_message
+  title: You cannot add more addresses
+  element_type: message
+  taxonomy:
+  - adding_address
+  - web_browser
+  source_facts:
+  - UI-04
+  content:
+    en:
+      label: You cannot add more addresses
+    es:
+      label: No puedes añadir más direcciones
+- id: ui.consultation_location_card
+  title: Consultation location card
+  element_type: card
+  taxonomy:
+  - address_management
+  - web_browser
+  source_facts:
+  - UI-05
+  content:
+    en:
+      label: Consultation location card
+    es:
+      label: Tarjeta de ubicación de consulta
+- id: ui.edit_address
+  title: Edit address
+  element_type: button
+  taxonomy:
+  - editing_address
+  - web_browser
+  source_facts:
+  - UI-06
+  content:
+    en:
+      label: Edit address
+    es:
+      label: Editar dirección
+- id: ui.save_changes
+  title: Save changes
+  element_type: button
+  taxonomy:
+  - editing_address
+  - web_browser
+  source_facts:
+  - UI-07
+  content:
+    en:
+      label: Save changes
+      system_note: Observed for editing an existing address; do not assume this is the creation-form button.
+    es:
+      label: Guardar cambios
+      system_note: Observado al editar una dirección existente; no asumir que es el botón del formulario de
+        creación.
+- id: ui.add_online_consultation
+  title: Add online consultation
+  element_type: button
+  taxonomy:
+  - adding_address
+  - online_consultation
+  - web_browser
+  source_facts:
+  - UI-08
+  content:
+    en:
+      label: Add online consultation
+    es:
+      label: Añadir consulta en línea
+- id: ui.additional_information
+  title: Additional information (optional)
+  element_type: field
+  taxonomy:
+  - adding_address
+  - editing_address
+  - physical_consultation
+  source_facts:
+  - UI-09
+  content:
+    en:
+      label: Additional information (optional)
+      system_note: Used for floor or other supplementary address details.
+    es:
+      label: Información adicional (opcional)
+      system_note: Se utiliza para el piso u otros datos complementarios de la dirección.
+- id: ui.calendars
+  title: Calendars
+  element_type: navigation_section
+  taxonomy:
+  - calendar_management
+  - web_browser
+  source_facts:
+  - UI-10
+  content:
+    en:
+      label: Calendars
+    es:
+      label: Calendarios
+- id: ui.delete_calendar
+  title: Delete calendar
+  element_type: menu_action
+  taxonomy:
+  - deleting_calendar
+  - web_browser
+  source_facts:
+  - UI-12
+  content:
+    en:
+      label: Delete calendar
+      system_note: Destructive action. Load rule.calendar_deletion_consequences and procedure.deleting_calendar
+        before guiding the user.
+    es:
+      label: Eliminar calendario
+      system_note: Acción destructiva. Consultar rule.calendar_deletion_consequences y procedure.deleting_calendar
+        antes de orientar al usuario.
+  verification_required: true
+- id: ui.address_drag_handle
+  title: Address card drag handle
+  element_type: icon
+  taxonomy:
+  - reordering_addresses
+  - web_browser
+  source_facts:
+  - UI-13
+  content:
+    en:
+      label: Drag handle on the left of the consultation location card
+    es:
+      label: Control de arrastre a la izquierda de la tarjeta de ubicación
+- id: ui.saved_successfully
+  title: Saved successfully
+  element_type: message
+  taxonomy:
+  - reordering_addresses
+  - web_browser
+  source_facts:
+  - UI-14
+  content:
+    en:
+      label: Saved successfully
+      system_note: Observed as a confirmation after reordering addresses.
+    es:
+      label: Guardado correctamente
+      system_note: Observado como confirmación después de reordenar direcciones.
+- id: ui.calendar_options_menu
+  title: Calendar options menu
+  element_type: menu
+  taxonomy:
+  - deleting_calendar
+  - calendar_management
+  - web_browser
+  source_facts:
+  - UI-15
+  content:
+    en:
+      label: Options menu in the upper-right corner of the selected calendar
+    es:
+      label: Menú de opciones en la esquina superior derecha del calendario seleccionado
+- id: ui.general_add
+  title: Add (general control)
+  element_type: button
+  taxonomy:
+  - adding_address
+  - online_consultation
+  - web_browser
+  source_facts:
+  - UI-16
+  content:
+    en:
+      label: Add
+      system_note: The control label may vary; do not treat this as a guaranteed exact button label.
+    es:
+      label: Añadir
+      system_note: La etiqueta puede variar; no considerarla un nombre de botón confirmado.
+  label_or_placement_unverified: true
+- id: ui.collapsible_navigation
+  title: Collapsible navigation menu
+  element_type: navigation_component
+  taxonomy:
+  - web_browser
+  - receptionist
+  source_facts:
+  - UI-17
+  content:
+    en:
+      label: Collapsible navigation menu
+      system_note: Check whether the menu is collapsed when Settings is not visible.
+    es:
+      label: Menú de navegación contraíble
+      system_note: Comprobar si el menú está contraído cuando Configuración no es visible.
+- id: ui.account_name_menu
+  title: Account-name menu
+  element_type: menu
+  taxonomy:
+  - web_browser
+  - receptionist
+  source_facts:
+  - UI-18
+  content:
+    en:
+      label: Account-name menu
+      system_note: Settings may appear here; exact placement is not established.
+    es:
+      label: Menú del nombre de la cuenta
+      system_note: Configuración podría aparecer aquí; la ubicación exacta no está confirmada.
+  label_or_placement_unverified: true

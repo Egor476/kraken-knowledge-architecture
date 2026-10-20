@@ -1,0 +1,535 @@
+id: kraken_procedures_module
+title: Kraken Procedures Module
+schema_version: '1.0'
+taxonomy_source: taxonomy/kraken-basic-taxonomy.yml
+source_inventory: inventory/kraken-product-facts.md
+evidence_status: Observed in supplied Doctor–Kraken video; not independently verified
+localization:
+  supported_locales: [en-gb, es-mx]
+  content_languages: [en, es]
+  strategy: localized_content_per_procedure
+  ui_label_note: Translated UI labels are illustrative, not verified against localized product UI.
+procedures:
+- id: procedure.viewing_addresses
+  title: Viewing addresses
+  taxonomy:
+  - viewing_addresses
+  - individual_professional_profile
+  - clinic_profile
+  source_facts:
+  - PW-01
+  - PR-18
+  - UI-01
+  - UI-02
+  content:
+    en:
+      goal: Viewing addresses
+      steps:
+      - step: On the website, select Settings > Addresses.
+      user_note: A clinic has its own institutional profile and address, distinct from an individual professional
+        profile.
+    es:
+      goal: Consultar direcciones
+      steps:
+      - step: En el sitio web, selecciona Configuración > Direcciones.
+      user_note: Una clínica tiene su propio perfil institucional y dirección, distintos del perfil de un profesional.
+- id: procedure.adding_physical_address
+  title: Adding a physical address
+  taxonomy:
+  - adding_address
+  - physical_consultation
+  - web_browser
+  source_facts:
+  - PW-01
+  - PW-02
+  - PR-01
+  - PR-02
+  - PR-03
+  - PR-12
+  - UI-01
+  - UI-02
+  - UI-03
+  - UI-09
+  content:
+    en:
+      goal: Adding a physical address
+      steps:
+      - step: On the website, open Settings > Addresses.
+      - step: Select Add physical consultation.
+      - step: Enter the street name, street number, and postal code.
+      - step: Optionally enter floor, apartment, building, or entrance details.
+      - step: Complete the remaining on-screen form and save the new address.
+      system_note: The exact save control for new-address creation is not identified in the source.
+      user_note: The number of physical addresses depends on the plan.
+    es:
+      goal: Añadir una dirección presencial
+      steps:
+      - step: En el sitio web, abre Configuración > Direcciones.
+      - step: Selecciona Añadir consulta presencial.
+      - step: Introduce la calle, el número y el código postal.
+      - step: Opcionalmente, añade piso, departamento, edificio o entrada.
+      - step: Completa el resto del formulario y guarda la dirección.
+      system_note: La fuente no identifica el botón exacto para guardar una dirección nueva.
+      user_note: El límite de direcciones presenciales depende del plan.
+- id: procedure.adding_online_consultation
+  title: Adding an online consultation location
+  taxonomy:
+  - adding_address
+  - online_consultation
+  - paid
+  - web_browser
+  source_facts:
+  - PW-01
+  - PW-04
+  - PR-04
+  - PR-12
+  - UI-01
+  - UI-02
+  - UI-08
+  content:
+    en:
+      goal: Adding an online consultation location
+      steps:
+      - step: On the website, open Settings > Addresses.
+      - step: Select Add online consultation.
+      - step: Follow the on-screen form to create the online consultation location.
+      user_note: Paid plans allow one online consultation location per professional.
+      system_note: The source establishes a one-location allowance on paid plans only; it does not establish
+        free-plan eligibility or quotas.
+    es:
+      goal: Añadir una ubicación de consulta en línea
+      steps:
+      - step: En el sitio web, abre Configuración > Direcciones.
+      - step: Selecciona Añadir consulta en línea.
+      - step: Sigue el formulario en pantalla para crear la ubicación de consulta en línea.
+      user_note: Los planes de pago permiten una ubicación de consulta en línea por profesional.
+      system_note: La fuente solo establece una ubicación permitida en planes de pago; no confirma los requisitos
+        ni los límites de planes gratuitos.
+- id: procedure.editing_address
+  title: Editing an address
+  taxonomy:
+  - editing_address
+  - web_browser
+  source_facts:
+  - PW-01
+  - PW-03
+  - PW-05
+  - PW-10
+  - PR-02
+  - PR-04
+  - PR-12
+  - UI-05
+  - UI-06
+  - UI-07
+  - UI-09
+  - OS-01
+  content:
+    en:
+      goal: Editing an address
+      steps:
+      - step: On the website, open Settings > Addresses.
+      - step: Find the relevant consultation location card and select Edit address.
+      - step: Update the relevant address fields; for floor details, use Additional information (optional).
+      - step: Select Save changes.
+    es:
+      goal: Editar una dirección
+      steps:
+      - step: En el sitio web, abre Configuración > Direcciones.
+      - step: Busca la tarjeta de la ubicación correspondiente y selecciona Editar dirección.
+      - step: Actualiza los campos necesarios; para indicar el piso, usa Información adicional (opcional).
+      - step: Selecciona Guardar cambios.
+- id: procedure.deleting_address
+  title: Deleting an address
+  taxonomy:
+  - deleting_address
+  - web_browser
+  source_facts:
+  - PR-07
+  - PR-08
+  - PR-12
+  - PW-01
+  content:
+    en:
+      goal: Deleting an address
+      steps:
+      - step: On the website, open Settings > Addresses and identify the address to remove.
+      - step: Check whether it is the only address on the profile. If so, explain that it cannot be deleted.
+      - step: Check whether a calendar is linked to the address. If so, explain that the address cannot be
+          deleted until the calendar is removed; consult procedure.deleting_calendar and present its warnings
+          before any calendar deletion.
+      - step: If neither restriction applies, use the available address-deletion option.
+      system_note: The supplied video does not identify the final address-deletion control. Do not invent a
+        button name or claim that deleting an address automatically deletes its calendar.
+    es:
+      goal: Eliminar una dirección
+      steps:
+      - step: En el sitio web, abre Configuración > Direcciones e identifica la dirección que deseas eliminar.
+      - step: Comprueba si es la única dirección del perfil. Si lo es, explica que no se puede eliminar.
+      - step: Comprueba si tiene un calendario vinculado. Si lo tiene, explica que primero debe eliminarse
+          el calendario; consulta procedure.deleting_calendar y presenta las advertencias antes de eliminarlo.
+      - step: Si no se aplica ninguna restricción, utiliza la opción disponible para eliminar la dirección.
+      system_note: El video no identifica el control final para eliminar la dirección. No inventes el nombre
+        del botón ni afirmes que eliminar una dirección elimina automáticamente su calendario.
+- id: procedure.deleting_calendar
+  title: Deleting a calendar
+  taxonomy:
+  - deleting_calendar
+  - calendar_management
+  - web_browser
+  source_facts:
+  - PW-06
+  - UI-10
+  - UI-12
+  - UI-15
+  - OS-02
+  - OS-03
+  - OS-04
+  - OS-05
+  - OS-06
+  - OS-07
+  - OS-08
+  - OS-11
+  - OS-12
+  - OS-13
+  verification_required: true
+  content:
+    en:
+      goal: Deleting a calendar
+      warning: 'HIGH IMPACT — VERIFY BEFORE CUSTOMER USE: According to the video, deleting a calendar cancels
+        future appointments without notifying patients, removes associated services and consultation hours,
+        but retains past appointment history. Deletion cannot be undone; canceled appointments must be rebooked
+        and deleted configuration recreated. Confirm the consequences and the user’s intention before proceeding.'
+      steps:
+      - step: On the website, open Settings > Calendars.
+      - step: Select the calendar linked to the consultation location.
+      - step: Open the upper-right options menu.
+      - step: Only after explaining the consequences and confirming the user wishes to proceed, select Delete
+          calendar.
+    es:
+      goal: Eliminar un calendario
+      warning: 'ALTO IMPACTO — VERIFICAR ANTES DE USAR CON CLIENTES: Según el video, eliminar un calendario
+        cancela las citas futuras sin notificar a los pacientes, elimina los servicios y horarios asociados
+        pero conserva el historial de citas anteriores. No se puede deshacer; las citas deben volver a reservarse
+        y la configuración debe crearse de nuevo. Explica las consecuencias y confirma la intención antes de
+        continuar.'
+      steps:
+      - step: En el sitio web, abre Configuración > Calendarios.
+      - step: Selecciona el calendario vinculado a la ubicación.
+      - step: Abre el menú de opciones de la esquina superior derecha.
+      - step: Solo después de explicar las consecuencias y confirmar que el usuario desea continuar, selecciona
+          Eliminar calendario.
+- id: procedure.reordering_addresses
+  title: Reordering addresses
+  taxonomy:
+  - reordering_addresses
+  - web_browser
+  source_facts:
+  - PW-01
+  - PW-07
+  - PR-09
+  - PR-10
+  - PR-11
+  - PR-12
+  - UI-13
+  - UI-14
+  - OS-09
+  content:
+    en:
+      goal: Reordering addresses
+      steps:
+      - step: On the website, open Settings > Addresses.
+      - step: Hold the drag handle at the left of the relevant consultation location card.
+      - step: Drag the card to the desired position.
+      - step: Check for the Saved successfully confirmation.
+      user_note: The first address is primary. Public-profile changes may be delayed and consultation-type
+        tabs may affect patient-facing ordering. To check delayed public-profile visibility, use procedure.checking_profile_updates.
+    es:
+      goal: Reordenar direcciones
+      steps:
+      - step: En el sitio web, abre Configuración > Direcciones.
+      - step: Mantén pulsado el controlador de arrastre a la izquierda de la tarjeta correspondiente.
+      - step: Arrastra la tarjeta a la posición deseada.
+      - step: Comprueba que aparezca la confirmación Guardado correctamente.
+      user_note: La primera dirección es la principal. Los cambios públicos pueden tardar en aparecer y las
+        pestañas por tipo de consulta pueden afectar el orden visible. Para comprobar la visibilidad de los
+        cambios en el perfil público, consulta procedure.checking_profile_updates.
+- id: procedure.checking_profile_updates
+  title: Checking public-profile updates
+  taxonomy:
+  - web_browser
+  source_facts:
+  - PW-08
+  - PR-10
+  content:
+    en:
+      goal: Checking whether saved changes appear on the public profile
+      steps:
+      - step: After saving a change that affects the public profile, allow time for the update to appear.
+      - step: Open the public profile in a private/incognito browser window.
+      - step: Check whether the expected change is visible.
+      user_note: Incognito mode helps verify what is displayed publicly; it does not accelerate publication.
+      system_note: The video demonstrates this check after address reordering. Applying the same verification
+        technique to other public-profile updates is a reasonable generalization, not independently demonstrated
+        for every update type.
+    es:
+      goal: Comprobar si los cambios guardados aparecen en el perfil público
+      steps:
+      - step: Después de guardar un cambio que afecta al perfil público, espera un tiempo para que aparezca.
+      - step: Abre el perfil público en una ventana privada o de incógnito.
+      - step: Comprueba si el cambio esperado es visible.
+      user_note: El modo incógnito permite comprobar lo que se muestra públicamente; no acelera la publicación.
+      system_note: El video muestra esta comprobación después de reordenar direcciones. Aplicarla a otros cambios
+        del perfil público es una generalización razonable, no demostrada para todos los tipos de cambio.
+- id: procedure.checking_physical_address_limit
+  title: Checking address limits
+  taxonomy:
+  - adding_address
+  - subscription_plans
+  source_facts:
+  - PW-11
+  - PR-03
+  - ET-01
+  - UI-03
+  - UI-04
+  content:
+    en:
+      goal: Checking address limits
+      steps:
+      - step: In Settings > Addresses, check whether Add physical consultation is available.
+      - step: Look for the message You cannot add more addresses.
+      - step: If the account-specific limit is unclear, contact Customer Care for clarification.
+      system_note: 'Do not infer a numerical limit: the source only states that it depends on the subscription
+        plan.'
+    es:
+      goal: Comprobar los límites de direcciones
+      steps:
+      - step: En Configuración > Direcciones, comprueba si aparece Añadir consulta presencial.
+      - step: Busca el mensaje No puedes añadir más direcciones.
+      - step: Si el límite de la cuenta no está claro, consulta con Atención al Cliente.
+      system_note: 'No deduzcas un límite numérico: la fuente solo indica que depende del plan.'
+- id: procedure.troubleshooting_online_location
+  title: Troubleshooting online-location creation
+  taxonomy:
+  - adding_address
+  - online_consultation
+  source_facts:
+  - PW-12
+  - PR-04
+  - UI-08
+  - UI-16
+  content:
+    en:
+      goal: Troubleshooting online-location creation
+      steps:
+      - step: Check whether an online consultation location already exists for the professional.
+      - step: Check whether the general Add control uses a different label.
+      - step: Confirm whether the account has a paid plan before applying the one-online-location rule.
+      system_note: The source does not establish eligibility or quotas for free plans.
+    es:
+      goal: Resolver problemas al añadir una consulta en línea
+      steps:
+      - step: Comprueba si el profesional ya tiene una ubicación de consulta en línea.
+      - step: Comprueba si el control general Añadir tiene otra etiqueta.
+      - step: Confirma si la cuenta tiene un plan de pago antes de aplicar el límite de una ubicación.
+      system_note: La fuente no establece requisitos ni límites para planes gratuitos.
+- id: procedure.enabling_booking_at_address
+  title: Enabling booking at a new address
+  taxonomy:
+  - adding_address
+  - enabling_online_booking
+  - service_management
+  - consultation_hours_management
+  source_facts:
+  - PW-13
+  - PR-05
+  - PR-06
+  content:
+    en:
+      goal: Enabling booking at a new address
+      steps:
+      - step: Check whether at least one service is assigned to the new address.
+      - step: Check whether consultation hours are configured for that address in its calendar.
+      - step: If either prerequisite is missing, configure it before expecting patient booking to be available.
+      system_note: The source does not provide exact UI steps for assigning services or consultation hours.
+    es:
+      goal: Habilitar reservas en una dirección nueva
+      steps:
+      - step: Comprueba si hay al menos un servicio asignado a la nueva dirección.
+      - step: Comprueba si tiene horarios de consulta configurados en su calendario.
+      - step: Si falta alguno de estos requisitos, configúralo antes de esperar que los pacientes puedan reservar.
+      system_note: La fuente no indica los pasos exactos de interfaz para asignar servicios u horarios.
+- id: procedure.troubleshooting_receptionist_address_calendar_access
+  title: Troubleshooting receptionist access to addresses and calendars
+  taxonomy:
+  - receptionist
+  - web_browser
+  - address_management
+  - calendar_management
+  source_facts:
+  - PW-14
+  - PR-12
+  - PR-22
+  - PR-23
+  - PR-24
+  - UI-01
+  - UI-17
+  - UI-18
+  content:
+    en:
+      goal: Troubleshooting receptionist access to address or calendar management
+      steps:
+      - step: Confirm the receptionist is using the website rather than the mobile app.
+      - step: Check whether the navigation menu is collapsed or Settings appears under the account-name menu.
+      - step: For address management, check whether the delegated account has permission to edit basic profile
+          information; for calendars, check applicable delegated access without assuming the same permission
+          applies.
+      - step: If permissions appear insufficient, ask the person responsible for managing delegated access
+          to review them.
+      user_note: Use delegated access; do not share primary-account credentials.
+      system_note: The source supports receptionist address management with appropriate delegated permissions
+        and calendar management from a central panel. It does not establish broader receptionist permissions
+        or the precise permission required for every calendar operation.
+    es:
+      goal: Resolver problemas de acceso de recepción a direcciones o calendarios
+      steps:
+      - step: Confirma que recepción use el sitio web y no la aplicación móvil.
+      - step: Comprueba si el menú está contraído o si Configuración aparece bajo el nombre de la cuenta.
+      - step: Para gestionar direcciones, comprueba el permiso delegado para editar información básica del
+          perfil; para calendarios, revisa el acceso delegado aplicable sin asumir que se necesita el mismo
+          permiso.
+      - step: Si los permisos parecen insuficientes, solicita una revisión a la persona responsable de gestionar
+          el acceso delegado.
+      user_note: Utiliza acceso delegado; no sugieras compartir credenciales de la cuenta principal.
+      system_note: La fuente respalda la gestión de direcciones con permisos delegados adecuados y la gestión
+        de calendarios desde un panel central. No establece permisos generales de recepción ni el permiso exacto
+        para cada operación de calendario.
+- id: procedure.pending_clinic_invitation
+  title: Handling a pending clinic invitation
+  taxonomy:
+  - clinic_management
+  - professional
+  source_facts:
+  - PW-15
+  - PR-19
+  - PR-20
+  - PR-21
+  content:
+    en:
+      goal: Handling a pending clinic invitation
+      steps:
+      - step: Check whether the doctor has accepted the clinic invitation.
+      - step: If they do not wish to join and have not accepted, leave the invitation unaccepted.
+      user_note: An unaccepted invitation does not establish a clinic association.
+    es:
+      goal: Gestionar una invitación pendiente a una clínica
+      steps:
+      - step: Comprueba si el médico ha aceptado la invitación de la clínica.
+      - step: Si no desea unirse y todavía no la ha aceptado, puede dejarla sin aceptar.
+      user_note: Una invitación sin aceptar no establece una vinculación con la clínica.
+- id: procedure.unlinking_doctor
+  title: Unlinking a doctor from a clinic
+  taxonomy:
+  - clinic_management
+  - clinic_administrator
+  - professional
+  source_facts:
+  - PW-09
+  - PW-16
+  - PR-27
+  content:
+    en:
+      goal: Unlinking a doctor from a clinic
+      steps:
+      - step: Check whether the doctor is already linked to the clinic.
+      - step: If linked, direct the clinic administrator to the facility administration settings.
+      - step: The clinic administrator removes the association there.
+      user_note: A linked doctor cannot unlink themselves from their individual professional profile.
+    es:
+      goal: Desvincular a un médico de una clínica
+      steps:
+      - step: Comprueba si el médico ya está vinculado a la clínica.
+      - step: Si está vinculado, indica al administrador que abra la configuración de administración del centro.
+      - step: El administrador elimina la vinculación desde allí.
+      user_note: Un médico vinculado no puede desvincularse desde su perfil individual.
+- id: procedure.recovering_deleted_address
+  title: Requesting recovery after accidental deletion
+  taxonomy:
+  - recovering_address
+  - calendar_management
+  source_facts:
+  - PW-17
+  - PR-28
+  - ET-03
+  - OS-11
+  - OS-12
+  - OS-13
+  content:
+    en:
+      goal: Requesting recovery after accidental deletion
+      steps:
+      - step: Explain that the professional cannot restore a deleted address themselves.
+      - step: Contact support to request restoration of the deleted address and its calendar.
+      - step: Explain that canceled future appointments must be booked again.
+      - step: Explain that deleted services and consultation hours must be configured again.
+      system_note: Video-observed recovery capabilities and limits require product-owner verification. Do not
+        promise successful restoration or automatic recovery of lost data.
+    es:
+      goal: Solicitar recuperación tras una eliminación accidental
+      steps:
+      - step: Explica que el profesional no puede restaurar por sí mismo una dirección eliminada.
+      - step: Contacta con soporte para solicitar la restauración de la dirección y su calendario.
+      - step: Explica que las citas futuras canceladas deben reservarse de nuevo.
+      - step: Explica que los servicios y horarios eliminados deben configurarse otra vez.
+      system_note: Las posibilidades y límites de recuperación observados en el video requieren verificación.
+        No prometas la restauración ni la recuperación automática de datos.
+  verification_required: true
+- id: procedure.requesting_medical_center_profile
+  title: Requesting a medical center profile
+  taxonomy:
+  - activating_clinic_profile
+  - clinic_profile
+  source_facts:
+  - PR-14
+  - PR-18
+  - ET-02
+  content:
+    en:
+      goal: Requesting a medical center profile
+      steps:
+      - step: Determine whether the goal is to manage a clinic with multiple doctors rather than an individual
+          professional location.
+      - step: Request activation of a medical center profile through the specialized team.
+      system_note: The source does not provide a self-service activation path.
+    es:
+      goal: Solicitar un perfil de centro médico
+      steps:
+      - step: Determina si el objetivo es gestionar una clínica con varios médicos en lugar de una ubicación
+          de un profesional individual.
+      - step: Solicita la activación de un perfil de centro médico al equipo especializado.
+      system_note: La fuente no indica una ruta de activación de autoservicio.
+- id: procedure.linking_doctor_to_clinic
+  title: Linking a doctor to a clinic
+  taxonomy:
+  - clinic_management
+  - clinic_administrator
+  - professional
+  source_facts:
+  - PR-15
+  - PR-19
+  - PR-20
+  - PR-21
+  content:
+    en:
+      goal: Linking a doctor to a clinic
+      steps:
+      - step: A clinic administrator sends an invitation email to the doctor.
+      - step: The doctor opens the invitation link and accepts it to establish the association.
+      - step: If the invitation is not accepted, the doctor remains unlinked.
+      system_note: The source does not specify the administrator interface for sending invitations.
+    es:
+      goal: Vincular a un médico con una clínica
+      steps:
+      - step: Un administrador de la clínica envía una invitación por correo al médico.
+      - step: El médico abre el enlace y acepta la invitación para establecer la vinculación.
+      - step: Si no acepta la invitación, no queda vinculado.
+      system_note: La fuente no especifica la interfaz del administrador para enviar invitaciones.

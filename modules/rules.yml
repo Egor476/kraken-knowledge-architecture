@@ -1,0 +1,297 @@
+id: kraken_rules_module
+title: Kraken Rules Module
+schema_version: '1.0'
+taxonomy_source: taxonomy/kraken-basic-taxonomy.yml
+source_inventory: inventory/kraken-product-facts.md
+evidence_status: Observed in supplied Doctor–Kraken video; not independently verified
+localization:
+  supported_locales: [en-gb, es-mx]
+  content_languages: [en, es]
+  strategy: localized_content_per_rule
+rules:
+- id: rule.physical_address_fields
+  title: Physical address fields
+  taxonomy:
+  - adding_address
+  - physical_consultation
+  source_facts:
+  - PR-01
+  - PR-02
+  content:
+    en:
+    - Street name, street number, and postal code are required when registering a physical consultation location.
+    - Floor, apartment, building, and entrance details are optional.
+    es:
+    - Para registrar una consulta presencial, se requieren el nombre de la calle, el número y el código postal.
+    - La planta, el apartamento, el edificio y la entrada son datos opcionales.
+- id: rule.physical_address_quota
+  title: Physical address quota
+  taxonomy:
+  - adding_address
+  - subscription_plans
+  source_facts:
+  - PR-03
+  content:
+    en:
+    - The number of physical consultation locations allowed per account depends on the subscription plan.
+    - The exact quota for each plan is not specified in the source material.
+    es:
+    - El número de consultas presenciales permitidas por cuenta depende del plan de suscripción.
+    - El material de origen no especifica la cuota exacta de cada plan.
+- id: rule.online_consultation_eligibility
+  title: Online consultation eligibility
+  taxonomy:
+  - adding_address
+  - online_consultation
+  - paid
+  source_facts:
+  - PR-04
+  content:
+    en:
+    - Paid plans allow one online consultation location per professional.
+    es:
+    - Los planes de pago permiten una consulta online por profesional.
+  applies_when:
+    subscription_plan:
+    - paid
+- id: rule.online_booking_prerequisites
+  title: Online booking prerequisites
+  taxonomy:
+  - enabling_online_booking
+  - assigning_service_to_address
+  - adding_consultation_hours
+  source_facts:
+  - PR-05
+  - PR-06
+  content:
+    en:
+    - For patients to book appointments at a new consultation location, at least one service must be assigned
+      to the address.
+    - Consultation hours must also be configured in the calendar.
+    es:
+    - Para que los pacientes puedan reservar citas en una nueva consulta, debe haber al menos un servicio asignado
+      a la dirección.
+    - También debe haber horarios de consulta configurados en el calendario.
+- id: rule.address_deletion_restrictions
+  title: Address deletion restrictions
+  taxonomy:
+  - deleting_address
+  - deleting_calendar
+  source_facts:
+  - PR-07
+  - PR-08
+  content:
+    en:
+    - An address cannot be deleted while it has a linked calendar.
+    - An address cannot be deleted if it is the only address on the profile.
+    es:
+    - No se puede eliminar una dirección mientras tenga un calendario vinculado.
+    - No se puede eliminar una dirección si es la única del perfil.
+- id: rule.calendar_deletion_consequences
+  title: Calendar deletion consequences
+  taxonomy:
+  - deleting_calendar
+  - deleting_address
+  - cancelling_appointment
+  - viewing_appointment_history
+  source_facts:
+  - OS-03
+  - OS-04
+  - OS-05
+  - OS-06
+  - OS-07
+  - OS-08
+  content:
+    en:
+    - Deleting a calendar cancels future appointments without notifying affected patients.
+    - Associated services and consultation hours are deleted.
+    - The history of past appointments is preserved.
+    - Calendar deletion cannot be reversed through the normal workflow.
+    es:
+    - Eliminar un calendario cancela las citas futuras sin notificar a los pacientes afectados.
+    - Se eliminan los servicios y los horarios de consulta asociados.
+    - Se conserva el historial de citas pasadas.
+    - La eliminación del calendario no puede revertirse mediante el procedimiento habitual.
+  verification_priority: critical
+- id: rule.deletion_recovery_limits
+  title: Deletion recovery limitations
+  taxonomy:
+  - recovering_address
+  - deleting_calendar
+  source_facts:
+  - PR-28
+  - OS-11
+  - OS-12
+  - OS-13
+  content:
+    en:
+    - Professionals cannot restore deleted addresses themselves.
+    - Canceled future appointments cannot be restored automatically and must be booked again.
+    - Deleted services and consultation hours must be configured again.
+    es:
+    - Los profesionales no pueden restaurar por sí mismos las direcciones eliminadas.
+    - Las citas futuras canceladas no se pueden restaurar automáticamente y deben volver a reservarse.
+    - Los servicios y horarios de consulta eliminados deben configurarse de nuevo.
+  verification_priority: critical
+- id: rule.address_recovery_support
+  title: Support-assisted address recovery
+  taxonomy:
+  - recovering_address
+  - support_specialist
+  source_facts:
+  - ET-03
+  content:
+    en:
+    - The support team can restore the deleted address and its calendar; this does not restore canceled
+      appointments, services, or consultation hours.
+    es:
+    - El equipo de soporte puede restaurar la dirección eliminada y su calendario; esto no restaura las citas
+      canceladas, los servicios ni los horarios de consulta.
+  verification_priority: critical
+- id: rule.primary_address_order
+  title: Primary address and profile order
+  taxonomy:
+  - reordering_addresses
+  source_facts:
+  - PR-09
+  - PR-10
+  - PR-11
+  content:
+    en:
+    - The first consultation location in the Addresses list is considered the primary address.
+    - Changes to the public profile, including location order, may not appear immediately.
+    - The patient-facing profile may prioritize or group locations by consultation type.
+    es:
+    - La primera consulta de la lista de direcciones se considera la dirección principal.
+    - Los cambios en el perfil público, incluido el orden de las consultas, pueden tardar en mostrarse.
+    - El perfil visible para los pacientes puede priorizar o agrupar las consultas según el tipo de consulta.
+- id: rule.address_management_access
+  title: Address management access point
+  taxonomy:
+  - adding_address
+  - editing_address
+  - deleting_address
+  - reordering_addresses
+  - web_browser
+  - mobile_app
+  source_facts:
+  - PR-12
+  content:
+    en:
+    - Adding, editing, deleting, and reordering addresses are available through the website, not the mobile
+      app.
+    es:
+    - Añadir, editar, eliminar y reordenar direcciones se realiza desde la web, no desde la aplicación móvil.
+- id: rule.clinic_profile_requirements
+  title: Clinic profile requirements
+  taxonomy:
+  - activating_clinic_profile
+  - clinic_profile
+  - individual_professional_profile
+  source_facts:
+  - PR-14
+  - PR-18
+  - PR-26
+  - ET-02
+  content:
+    en:
+    - An individual professional profile is intended for one professional.
+    - A clinic or medical center requires an institutional profile with its own address.
+    - Creating a medical center profile requires activation by a specialized team.
+    es:
+    - El perfil individual está destinado a un solo profesional.
+    - Una clínica o centro médico requiere un perfil institucional con su propia dirección.
+    - La creación de un perfil de centro médico requiere la activación por parte de un equipo especializado.
+- id: rule.clinic_management_capabilities
+  title: Clinic management capabilities
+  taxonomy:
+  - managing_shared_calendars
+  - clinic_profile
+  - clinic_administrator
+  source_facts:
+  - PR-15
+  - PR-16
+  - PR-17
+  - PR-24
+  - PR-25
+  content:
+    en:
+    - A medical center profile allows doctors to be linked to the clinic and administrators to coordinate their
+      schedules and calendars.
+    - Professionals can maintain their own working hours within the clinic.
+    - Reception or administration can manage calendars from a central panel.
+    es:
+    - El perfil de un centro médico permite vincular profesionales a la clínica y que los administradores coordinen
+      sus horarios y calendarios.
+    - Los profesionales pueden mantener sus propios horarios de trabajo dentro de la clínica.
+    - Recepción o administración puede gestionar los calendarios desde un panel central.
+- id: rule.clinic_invitations
+  title: Clinic invitations
+  taxonomy:
+  - inviting_doctors
+  - managing_linked_doctors
+  - clinic_administrator
+  source_facts:
+  - PR-19
+  - PR-20
+  - PR-21
+  content:
+    en:
+    - Clinic administrators can invite doctors by email to link them to clinic facilities and shared schedules.
+    - Doctors can accept an invitation through the email link.
+    - An unaccepted invitation does not establish a doctor-clinic association.
+    es:
+    - Los administradores de la clínica pueden invitar a médicos por correo electrónico para vincularlos a
+      las instalaciones y los horarios compartidos.
+    - Los médicos pueden aceptar la invitación mediante el enlace del correo electrónico.
+    - Una invitación no aceptada no establece una vinculación con la clínica.
+- id: rule.clinic_unlinking
+  title: Doctor unlinking restriction
+  taxonomy:
+  - managing_linked_doctors
+  - professional
+  - clinic_administrator
+  source_facts:
+  - PR-27
+  - PW-09
+  content:
+    en:
+    - A doctor already linked to a clinic cannot unlink themselves from their individual professional profile.
+    - The clinic administrator must remove the association through the facility administration settings.
+    es:
+    - Un médico ya vinculado a una clínica no puede desvincularse desde su perfil profesional individual.
+    - El administrador de la clínica debe eliminar la vinculación desde la configuración de administración
+      del centro.
+- id: rule.delegated_address_permissions
+  title: Delegated address permissions
+  taxonomy:
+  - receptionist
+  - web_browser
+  - address_management
+  source_facts:
+  - PR-22
+  - PR-23
+  content:
+    en:
+    - A receptionist with a delegated account and appropriate permissions can manage addresses through the
+      website.
+    - Insufficient delegated permissions may prevent access to Settings.
+    es:
+    - Un recepcionista con una cuenta delegada y los permisos adecuados puede gestionar direcciones desde la
+      web.
+    - La falta de permisos delegados puede impedir el acceso a Configuración.
+- id: rule.subscription_limit_escalation
+  title: Subscription limit clarification
+  taxonomy:
+  - adding_address
+  - subscription_plans
+  - support_specialist
+  source_facts:
+  - ET-01
+  content:
+    en:
+    - If a professional needs clarification about their account-specific address limit, Customer Care may review
+      the account and provide guidance.
+    es:
+    - Si un profesional necesita aclarar el límite de direcciones de su cuenta, Atención al Cliente puede revisar
+      la cuenta y ofrecer orientación.
